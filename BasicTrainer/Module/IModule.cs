@@ -7,8 +7,8 @@ using System.Windows.Forms;
 
 namespace BasicTrainer.Module
 {
-    public interface Module
-    {
+    public interface IModule
+    {      
         /// <summary>
         /// Author: Seb
         /// Description: Toggles the mod on/off depending on the current status.
