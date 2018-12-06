@@ -1,0 +1,6 @@
+G:\DATASSD BU\Projects\BasicTrainer\BasicTrainer\bin\Debug\BasicTrainer.dll
+G:\DATASSD BU\Projects\BasicTrainer\BasicTrainer\bin\Debug\BasicTrainer.pdb
+G:\DATASSD BU\Projects\BasicTrainer\BasicTrainer\bin\Debug\ScriptHookVDotNet2.dll
+G:\DATASSD BU\Projects\BasicTrainer\BasicTrainer\obj\Debug\BasicTrainer.dll
+G:\DATASSD BU\Projects\BasicTrainer\BasicTrainer\obj\Debug\BasicTrainer.pdb
+G:\DATASSD BU\Projects\BasicTrainer\BasicTrainer\bin\Debug\NativeUI.dll
