@@ -54,12 +54,14 @@
     <Compile Include="Handler\Handlers\MenuHandler.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Module\BasicModule.cs" />
+    <Compile Include="Module\IModule.cs" />
     <Compile Include="Module\Modules\AddWantedLevel.cs" />
     <Compile Include="Module\Modules\ClearWantedLevel.cs" />
     <Compile Include="Module\Modules\FixCar.cs" />
     <Compile Include="Module\Modules\GodMode.cs" />
     <Compile Include="Module\Modules\SearchVehicle.cs" />
     <Compile Include="Module\Modules\SlowMotionAim.cs" />
+    <Compile Include="Module\Modules\TeleportWayPoint.cs" />
     <Compile Include="Module\Modules\UnlimitedAmmo.cs" />
     <Compile Include="Module\Modules\VehicleGodMode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -22,7 +22,7 @@ namespace BasicTrainer.Module
         Misc
     }
 
-    public abstract class BasicModule : Module
+    public abstract class BasicModule : IModule
     {
         private readonly string name;
         private readonly Keys toggleKey;

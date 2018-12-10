@@ -38,6 +38,7 @@ namespace BasicTrainer
             registerModule(new SlowMotionAim("Slow Motion While Aiming", MenuType.CHECKBOX, Category.Weapons));
             registerModule(new SearchVehicle("Search Vehicle by name", MenuType.BUTTON, Category.Vehicle));
             registerModule(new VehicleGodMode("VehicleGodMode", MenuType.CHECKBOX, Category.Vehicle));
+            registerModule(new TeleportWayPoint("Teleport to waypoint", MenuType.BUTTON, Category.Misc));
 
             _subMenus = new Dictionary<Category, UIMenu>();
             _menu = new UIMenu("Seb's Trainer I", "Gros trainer de cave");
@@ -79,7 +80,7 @@ namespace BasicTrainer
                 if(model.IsInCdImage && model.IsValid)
                 {
                     while (!model.IsLoaded) Script.Wait(50);
-                    World.CreatePickup(PickupType.MoneyPaperBag, player.Character.GetOffsetInWorldCoords(new Vector3(0, 5, 0)), model, 40000);
+                    World.CreatePickup(PickupType.MoneyPaperBag, player.Character.GetOffsetInWorldCoords(new Vector3(0, 2, 0)), model, 40000);
                 }
                 else
                 {
@@ -108,18 +109,19 @@ namespace BasicTrainer
                 _subMenus.Add(category, subMenu);
                 subMenu.OnItemSelect += _menuHandler.onItemSelectHandler;
                 subMenu.OnCheckboxChange += _menuHandler.onCheckBoxChangedHandler;
-            }          
-                                                  
-            foreach (BasicModule module in modules)
-            {
-                UIMenu menuToAdd;
-                _subMenus.TryGetValue(module.getCategory(), out menuToAdd);
-                if(module.getMenuType() == MenuType.BUTTON)
-                    menuToAdd.AddItem(new UIMenuItem(module.getName()));                
-                else if(module.getMenuType() == MenuType.CHECKBOX)
-                    menuToAdd.AddItem(new UIMenuCheckboxItem(module.getName(), false));             
-            }
 
+                foreach(BasicModule module in modules)
+                {
+                    if(module.getCategory() == category)
+                    {
+                        if (module.getMenuType() == MenuType.BUTTON)
+                            subMenu.AddItem(new UIMenuItem(module.getName()));
+                        else if (module.getMenuType() == MenuType.CHECKBOX)
+                            subMenu.AddItem(new UIMenuCheckboxItem(module.getName(), false));
+                    }                 
+                }
+            }          
+                                                             
             setupWeaponSelectorMenu();
             setupVehicleSelectorMenu();
         }
@@ -144,16 +146,13 @@ namespace BasicTrainer
                 veh.PlaceOnGround();                
             };
         }
-
-       
-
+      
         private void setupWeaponSelectorMenu()
         {
             // Weapon Selector
             UIMenu weaponMenu;
             _subMenus.TryGetValue(Category.Weapons, out weaponMenu);
             UIMenu weaponSelectorMenu = _menuPool.AddSubMenu(weaponMenu, "Weapon Selector");
-
 
             foreach (WeaponHash weaponHash in Enum.GetValues(typeof(WeaponHash)))
                 weaponSelectorMenu.AddItem(new UIMenuItem(weaponHash.ToString()));
